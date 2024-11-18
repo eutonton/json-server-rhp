@@ -1,0 +1,58 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "admin123",
+      "token": "jC6aq4mJJ8FY7PkS-vwo0toTJoBAO8R8sDacCbm2GSFXgfLDTnThyT3Y2ldgw7mH"
+    }
+  ],
+  "patients": [
+    {
+      "id": 1,
+      "name": "João da Silva",
+      "cpf": "12345678901",
+      "dob": "1990-01-15",
+      "status": "internado",
+      "bed": "A101",
+      "hospital": "Hospital Central",
+      "sexo": "Masculino"
+    },
+    {
+      "name": "Maria Tevez",
+      "cpf": "1233214569",
+      "dob": "1990-01-15",
+      "status": "internado",
+      "bed": "A105",
+      "hospital": "Hospital Central",
+      "sexo": "Feminino"
+    },
+    {
+      "codigoProntuario": "8554",
+      "nome": "Julia silva",
+      "dataNascimento": "2000-06-04",
+      "sexo": "feminino",
+      "cpf": "11111111111",
+      "nomeMae": "Maria Aparecida",
+      "nomePai": ""
+    },
+    {
+      "codigoProntuario": "8545",
+      "name": "Larissio Roseano",
+      "dob": "2001-05-17",
+      "sexo": "masculino",
+      "cpf": "64698778956",
+      "nomeMae": "Larissa Roseane",
+      "nomePai": ""
+    },
+    {
+      "codigoProntuario": "4444",
+      "name": "miguel",
+      "dob": "2006-05-04",
+      "sexo": "feminino",
+      "cpf": "45445445445",
+      "nomeMae": "patricia",
+      "nomePai": ""
+    }
+  ]
+}
