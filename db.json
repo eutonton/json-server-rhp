@@ -22,9 +22,9 @@
       "name": "Maria Tevez",
       "cpf": "1233214569",
       "dob": "1990-01-15",
-      "status": "internado",
-      "bed": "A105",
-      "hospital": "Hospital Central",
+      "status": "alta",
+      "bed": null,
+      "hospital": null,
       "sexo": "Feminino"
     },
     {
@@ -53,6 +53,15 @@
       "cpf": "45445445445",
       "nomeMae": "patricia",
       "nomePai": ""
+    }
+  ],
+  "hospitalDischarges": [
+    {
+      "cpf": "1233214569",
+      "dataAlta": "2024-11-18",
+      "horaAlta": "19:57:54",
+      "motivoAlta": "cura"
+      
     }
   ]
 }

@@ -49,19 +49,42 @@ server.post('/patients', (req, res) => {
 });
 
 // Alta hospitalar
-server.patch('/patients/:id/alta', (req, res) => {
-  const { id } = req.params;
-  const patient = router.db.get('patients').find({ id: Number(id) }).value();
+server.patch('/patients/:cpf/alta', (req, res) => {
+  const { cpf } = req.params;
+  const { dataAlta, horaAlta, motivoAlta, motivoOutro } = req.body;
+
+  // Buscar o paciente pelo CPF
+  const patient = router.db.get('patients').find({ cpf }).value();
 
   if (!patient) {
     return res.status(404).json({ error: 'Paciente não encontrado' });
   }
 
+  // Atualizar o status do paciente
   const updatedPatient = { ...patient, status: 'alta', bed: null, hospital: null };
-  router.db.get('patients').find({ id: Number(id) }).assign(updatedPatient).write();
+  router.db.get('patients').find({ cpf }).assign(updatedPatient).write();
 
-  res.json(updatedPatient);
+  // Criar entrada para hospitalDischarges
+  const dischargeEntry = {
+    cpf,
+    dataAlta,
+    horaAlta,
+    motivoAlta,
+    motivoOutro,
+  };
+
+  // Adicionar ao array "hospitalDischarges"
+  const discharges = router.db.get('hospitalDischarges').value() || [];
+  router.db.get('hospitalDischarges').assign([...discharges, dischargeEntry]).write();
+
+  res.json({
+    patient: updatedPatient,
+    discharge: dischargeEntry,
+  });
 });
+
+
+
 
 // Transferência de leito
 server.patch('/patients/:id/transfer', (req, res) => {
